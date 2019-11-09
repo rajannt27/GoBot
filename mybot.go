@@ -70,7 +70,7 @@ func main() {
 				go func(m Message) {
 					var searchText string
 					for i := 2; i < len(parts); i++ {
-						searchText = searchText + " " + parts[i]
+						searchText = searchText + "%20" + parts[i]
 					}
 					m.Text = GetGoogleNews(searchText)
 					postMessage(ws, m)
