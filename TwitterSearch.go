@@ -82,7 +82,7 @@ func SearchTweet(searchText string) string {
 		Query:      searchText,
 		Count:      1,
 		ResultType: "popular",
-		Since:      "2019-01-01",
+		Since:      "2010-01-01",
 	}
 	search, resp, err := clnt.Search.Tweets(&test)
 	if err != nil {
