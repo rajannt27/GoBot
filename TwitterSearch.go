@@ -60,7 +60,7 @@ func SendTweet() string {
 	creds := getCredentials()
 	var clnt, err = getClient(&creds)
 	if err != nil {
-		return fmt.Sprintf("error retrieving client", err)
+		return fmt.Sprintf("error retrieving client %s", err)
 	}
 	tweet, resp, err := clnt.Statuses.Update("this is another test tweet", nil)
 	if err != nil || resp.StatusCode != 200 {
@@ -76,7 +76,7 @@ func SearchTweet(searchText string) string {
 	creds := getCredentials()
 	var clnt, err = getClient(&creds)
 	if err != nil {
-		log.Fatal("error retrieving client", err)
+		return fmt.Sprintf("error retrieving client %s", err)
 	}
 	var test = twitter.SearchTweetParams{
 		Query:      searchText,

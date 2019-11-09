@@ -35,7 +35,7 @@ func GetGoogleNews(searchText string) string {
 	response, err := http.Get(url)
 	var searchRes searchResponse
 	if err != nil {
-		return fmt.Sprintf("error retrieving data", err)
+		return fmt.Sprintf("error retrieving data %s", err)
 	} else {
 		//read response
 		data, _ := ioutil.ReadAll(response.Body)
