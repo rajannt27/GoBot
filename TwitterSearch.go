@@ -56,13 +56,13 @@ func getCredentials() Credentials {
 }
 
 //SendTweet function sends tweet for authenticated user
-func SendTweet() string {
+func SendTweet(tweetText string) string {
 	creds := getCredentials()
 	var clnt, err = getClient(&creds)
 	if err != nil {
 		return fmt.Sprintf("error retrieving client %s", err)
 	}
-	tweet, resp, err := clnt.Statuses.Update("this is another test tweet", nil)
+	tweet, resp, err := clnt.Statuses.Update(tweetText, nil)
 	if err != nil || resp.StatusCode != 200 {
 		return fmt.Sprintf("Tweeting failed %s", err)
 	}

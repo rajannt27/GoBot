@@ -77,7 +77,11 @@ func main() {
 				}(m)
 			case "twitterPost":
 				go func(m Message) {
-					m.Text = SendTweet()
+					var tweetText string
+					for i := 2; i < len(parts); i++ {
+						tweetText = tweetText + " " + parts[i]
+					}
+					m.Text = SendTweet(tweetText)
 					postMessage(ws, m)
 				}(m)
 			case "twitterSearch":
